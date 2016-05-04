@@ -5,7 +5,8 @@
   "private": true,
   "main": "start.js",
   "scripts": {
-    "start": "node --use_strict start.js"
+    "start": "node --use_strict start.js",
+    "postinstall": "HOME=$OPENSHIFT_REPO_DIR bower install || bower install"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
