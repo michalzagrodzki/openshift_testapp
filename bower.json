@@ -2,16 +2,7 @@
   "name": "test-webapp",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "~3.3.5"
-  },
-  "overrides": {
-    "bootstrap-sass": {
-      "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/*",
-        "assets/javascripts/bootstrap.js"
-      ]
-    }
+    "bootstrap": "3.3.6"
   },
   "devDependencies": {
     "chai": "^3.5.0",
