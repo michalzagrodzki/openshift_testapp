@@ -5,8 +5,7 @@
   "private": true,
   "main": "start.js",
   "scripts": {
-    "start": "node --use_strict start.js",
-    "postinstall": "HOME=$OPENSHIFT_REPO_DIR bower install || bower install"
+    "start": "node --use_strict start.js"
   },
   "dependencies": {
     "bower": "1.7.9"
