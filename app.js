@@ -19,6 +19,20 @@ let server = http.createServer(function (req, res) {
   } else if (url.indexOf('/info/') == 0) {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Cache-Control', 'no-cache, no-store');
+  } else if {
+    fs.readFile('./static' + url, function (err, data) {
+      if (err) {
+        res.writeHead(404);
+        res.end();
+      } else {
+        let ext = path.extname(url).slice(1);
+        res.setHeader('Content-Type', contentTypes[ext]);
+        if (ext === 'html') {
+          res.setHeader('Cache-Control', 'no-cache, no-store');
+        }
+        res.end(data);
+      }
+    });
   } else {
     fs.readFile('./dist' + url, function (err, data) {
       if (err) {
@@ -33,7 +47,7 @@ let server = http.createServer(function (req, res) {
         res.end(data);
       }
     });
-  }
+}
 });
 
 server.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', function () {
