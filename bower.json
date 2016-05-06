@@ -1,0 +1,11 @@
+{
+  "name": "test-webapp",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}

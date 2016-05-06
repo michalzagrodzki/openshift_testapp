@@ -2,7 +2,6 @@ const http         = require('http'),
       fs           = require('fs'),
       path         = require('path'),
       contentTypes = require('./utils/content-types'),
-      sysInfo      = require('./utils/sys-info'),
       env          = process.env;
 
 let server = http.createServer(function (req, res) {
@@ -20,9 +19,8 @@ let server = http.createServer(function (req, res) {
   } else if (url.indexOf('/info/') == 0) {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Cache-Control', 'no-cache, no-store');
-    res.end(JSON.stringify(sysInfo[url.slice(6)]()));
   } else {
-    fs.readFile('./static' + url, function (err, data) {
+    fs.readFile('./dist' + url, function (err, data) {
       if (err) {
         res.writeHead(404);
         res.end();
