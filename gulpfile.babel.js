@@ -4,7 +4,6 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
-import logger from 'gulp-logger';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -166,11 +165,6 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 
 gulp.task('build_openshift', ['html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*')
-    .pipe(logger({
-      before: 'Starting build...',
-      after: 'Build complete!',
-      showChange: true
-    }))
     .pipe($.size({title: 'build', gzip: true}));
 });
 
