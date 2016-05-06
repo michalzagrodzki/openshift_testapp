@@ -163,7 +163,7 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('build_openshift', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build_openshift', ['html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
