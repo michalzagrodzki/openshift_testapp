@@ -4,6 +4,7 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
+import deploy from 'gulp-gh-pages';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -165,6 +166,15 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 
 gulp.task('build_openshift', ['html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+});
+
+var options = { 
+  remoteUrl: "example url",
+  branch: "master"
+};
+gulp.task('deploy', function () {
+  gulp.src("dist/**/*")
+      .pipe(deploy(options));
 });
 
 gulp.task('default', ['clean'], () => {
