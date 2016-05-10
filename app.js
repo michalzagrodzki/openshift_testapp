@@ -8,6 +8,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist' + '/index.html'));
 });
 
+// IMPORTANT: Your application HAS to respond to GET /health with status 200
+//            for OpenShift health monitoring
+
 app.get('/health', function (req, res) {
   res.writeHead(200);
   res.end();
