@@ -1,8 +1,8 @@
-var express = require('express');
-var app = express();
+const express = require('express'),
+      path    = require('path'),
+      env     = process.env;
 
-const path         = require('path'),
-      env          = process.env;
+var app = express();
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist' + '/index.html'));
