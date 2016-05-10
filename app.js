@@ -16,9 +16,6 @@ let server = http.createServer(function (req, res) {
 if (url == '/health') {
     res.writeHead(200);
     res.end();
-  } else if (url.indexOf('/info/') == 0) {
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Cache-Control', 'no-cache, no-store');
   } else {
     fs.readFile('./dist' + url, function (err, data) {
       if (err) {
