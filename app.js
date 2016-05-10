@@ -1,9 +1,7 @@
 var express = require('express');
 var app = express();
 
-const fs           = require('fs'),
-      path         = require('path'),
-      contentTypes = require('./utils/content-types'),
+const path         = require('path'),
       env          = process.env;
 
 app.get('/', function (req, res) {
